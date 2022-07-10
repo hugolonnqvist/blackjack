@@ -1,0 +1,18 @@
+.board {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.hand>div {
+    display: flex;
+    flex-direction: row;
+}
+
+.dealer {
+    display: flex;
+    flex-direction: row;
+}

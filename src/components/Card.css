@@ -1,0 +1,29 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 8vw;
+    height: 24vh;
+    border: 2px solid;
+    border-radius: 8px;
+    margin: 0.5px;
+}
+
+.upper-value, .under-value {
+    font-size: 24px;
+    padding: 8px;
+}
+
+.upper-value {
+    text-align: start;
+
+}
+
+.under-value {
+    text-align: end;
+}
+
+.suit {
+    font-size: 18px;
+    text-align: center;
+}
