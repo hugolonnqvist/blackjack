@@ -1,68 +1,48 @@
-import "./Game.css";
-import Card from "./Card";
-import Deck from "./Deck";
 import React, { useState } from "react";
+
+import Deck from "./Deck";
+import Player from "./Player";
+import Dealer from "./Dealer";
+import "./Game.css";
 
 const Game = () => {
   const deck = Deck();
-  const [activeGame, setActiveGame] = useState(false);
-  const [hitCard, setHitCard] = useState(false);
+  const INITIAL_PLAYER_CARDS = [deck[0], deck[2]];
+  const INITIAL_DEALER_CARDS = [deck[1], deck[3]];
 
-  const getCard = () => {
-    let card = deck[0];
-    deck.splice(0, 1);
-    return card;
+  deck.splice(0, 4);
+
+  const [playerCards, setPlayerCards] = useState(INITIAL_PLAYER_CARDS);
+  const [dealerCards, setDealerCards] = useState(INITIAL_DEALER_CARDS);
+
+  const hitCardHandler = (card) => {
+    setPlayerCards((prevCards) => {
+      return [...prevCards, card];
+    });
   };
 
-  const startGameHandler = () => {
-    setActiveGame(true);
+  //Funkar ej med foreach på en usestate arr
+  const checkResult = () => {
+    let playerValue = 0;
+    playerCards.foreach((card) => {
+      playerValue += card.value;
+    });
+    console.log(playerValue);
   };
 
-  const hitCardHandler = () => {
-    setHitCard(true);
-  };
-
-  const start = () => {
-    let numberOfHands = 1;
-    let dealerCard = getCard();
-    let startHands = [];
-
-    for (let i = 0; i < numberOfHands; i++) {
-      startHands[i] = { firstCard: getCard(), secondCard: getCard() };
-    }
-
-    return (
-      <div className="board">
-        <div id="23" className="dealer">
-          <Card card={dealerCard} />
-        </div>
-        <div className="player">
-          {startHands.map((hand, handIndex) => (
-            <div className="hand">
-              <div id={`hand${handIndex}`} className="cards">
-                <Card card={hand.firstCard} />
-                <Card card={hand.secondCard} />
-                {hitCard ? (
-                  <Card card={getCard()} />
-                ) : (
-                  <React.Fragment></React.Fragment>
-                )}
-              </div>
-              <button onClick={hitCardHandler}>Hit</button>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
+  const stayHandler = () => {
+    checkResult();
   };
 
   return (
-    <div>
-      {activeGame ? (
-        start()
-      ) : (
-        <button onClick={startGameHandler}>Start game</button>
-      )}
+    <div className="board">
+      <Dealer dealerCards={dealerCards} />
+      <Player
+        playerCards={playerCards}
+        deck={deck}
+        hitCardHandler={hitCardHandler}
+        stayHandler={stayHandler}
+      />
     </div>
   );
 };

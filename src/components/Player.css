@@ -1,4 +1,11 @@
 .player {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hands {
+    display: flex;
     flex-direction: row;
+    justify-content: center;
 }
