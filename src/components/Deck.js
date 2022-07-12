@@ -26,6 +26,7 @@ const Deck = () => {
   });
 
   ShuffleDeck(deck);
+
   return deck;
 };
 

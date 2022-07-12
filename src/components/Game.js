@@ -10,6 +10,8 @@ const Game = () => {
   const INITIAL_PLAYER_CARDS = [deck[0], deck[2]];
   const INITIAL_DEALER_CARDS = [deck[1], deck[3]];
 
+  console.log(INITIAL_PLAYER_CARDS);
+  //console.log(INITIAL_DEALER_CARDS);
   deck.splice(0, 4);
 
   const [playerCards, setPlayerCards] = useState(INITIAL_PLAYER_CARDS);
@@ -24,7 +26,7 @@ const Game = () => {
   //Funkar ej med foreach på en usestate arr
   const checkResult = () => {
     let playerValue = 0;
-    playerCards.foreach((card) => {
+    INITIAL_PLAYER_CARDS.foreach((card) => {
       playerValue += card.value;
     });
     console.log(playerValue);

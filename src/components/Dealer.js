@@ -2,6 +2,7 @@ import Card from "./Card";
 
 const Dealer = (props) => {
   const firstCard = props.dealerCards[0];
+
   //const secondCard = props.dealerCards[1];
 
   return (
