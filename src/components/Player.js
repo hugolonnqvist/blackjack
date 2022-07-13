@@ -1,28 +1,21 @@
 import "./Player.css";
 
 import Card from "./Card";
+import React from "react";
 
 const Player = (props) => {
-  const getCard = () => {
-    let card = props.deck[0];
-    props.deck.splice(0, 1);
-    return card;
-  };
-
-  const newCardHandler = () => {
-    let newCard = getCard();
-    props.hitCardHandler(newCard);
-  };
+  let playerCards = [];
+  playerCards += [props.card];
 
   return (
     <div className="player">
       <div className="hands">
-        {props.playerCards.map((card) => (
+        {playerCards.map((card) => (
           <Card card={card} />
         ))}
       </div>
-      <button onClick={newCardHandler}>Hit</button>
-      <button onClick={props.stayHandler}>Stay</button>
+      <button>Hit</button>
+      <button>Stay</button>
     </div>
   );
 };
