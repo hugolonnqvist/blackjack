@@ -1,10 +1,19 @@
+import React, { useEffect } from "react";
+
 import Card from "./Card";
 
 const Dealer = (props) => {
+  useEffect(() => {
+    if (props.dealerCards.length < 2) {
+      props.onNewDealerCard();
+    }
+  });
+
   return (
     <div className="dealer">
-      <Card card={""} />
-      <div className="card"></div>
+      {props.dealerCards.map((card) => (
+        <Card card={card}></Card>
+      ))}
     </div>
   );
 };
