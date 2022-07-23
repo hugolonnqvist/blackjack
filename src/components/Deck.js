@@ -14,12 +14,16 @@ const Deck = () => {
     "Q",
     "K",
   ];
-  const suits = [" Hearts", " Diamonds", " Clubs", " Spades"];
+  const suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
   const deck = [];
 
-  values.forEach((value) => {
-    suits.forEach((suit) => {
-      deck.push({ value, suit });
+  suits.forEach((suit, sIndex) => {
+    values.forEach((value, vIndex) => {
+      deck.push({
+        value,
+        suit,
+        key: vIndex + sIndex * values.length,
+      });
     });
   });
 
