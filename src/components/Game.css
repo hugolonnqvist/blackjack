@@ -4,9 +4,3 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
-.dealer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}

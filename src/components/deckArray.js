@@ -1,4 +1,4 @@
-const Deck = () => {
+const deckArray = () => {
   const values = [
     "A",
     "2",
@@ -41,4 +41,4 @@ const Deck = () => {
   return deck;
 };
 
-export default Deck;
+export default deckArray;

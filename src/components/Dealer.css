@@ -1,0 +1,11 @@
+.dealer {
+    display: flex;
+    flex-direction: column;
+}
+
+.dealerHand {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
