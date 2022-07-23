@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import Card from "./Card";
 
-const Dealer = (props) => {
+const Dealer = ({ onNewCard, cards }) => {
   useEffect(() => {
-    if (props.cards.length < 5) {
-      props.onNewCard();
-    }
-  });
+    onNewCard();
+  }, []);
 
   return (
     <div className="dealer">
-      {props.cards.map((card) => (
+      {cards.map((card) => (
         <Card key={card.key} card={card} />
       ))}
     </div>

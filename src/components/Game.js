@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import Deck from "./deck";
+import Deck from "./Deck";
 import Dealer from "./Dealer";
 import "./Game.css";
 
