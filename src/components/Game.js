@@ -11,14 +11,14 @@ const Game = () => {
   const [dealerCards, setDealerCards] = useState([]);
 
   const newDealerCardHandler = () => {
-    setDealerCards((prevCards) => {
-      return [...prevCards, deck[index]];
-    });
+    setIndex(index + 1);
   };
 
   useEffect(() => {
-    setIndex(index + 1);
-  }, [dealerCards]);
+    setDealerCards((prevCards) => {
+      return [...prevCards, deck[index]];
+    });
+  }, [index]);
 
   return (
     <div className="board">
