@@ -1,17 +1,7 @@
-import React, { useEffect } from "react";
-
 import Card from "./Card";
 import "./Dealer.css";
 
-const Dealer = ({ onNewCard, cards }) => {
-  useEffect(() => {
-    onNewCard();
-  }, [onNewCard]);
-
-  const hitHandler = () => {
-    onNewCard();
-  };
-
+const Dealer = ({ cards }) => {
   return (
     <div className="dealer">
       <div className="dealerHand">
@@ -19,7 +9,6 @@ const Dealer = ({ onNewCard, cards }) => {
           <Card key={card.key} card={card} />
         ))}
       </div>
-      <button onClick={hitHandler}>Hit</button>
     </div>
   );
 };
