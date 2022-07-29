@@ -4,3 +4,10 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.player-hands {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-evenly;
+}

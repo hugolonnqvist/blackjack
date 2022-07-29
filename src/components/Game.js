@@ -47,9 +47,15 @@ const Game = () => {
   return (
     <div className="board">
       <Dealer cards={dealerCards} />
-      {playerCards.map((cards, i) => (
-        <Player key={i} cards={cards} newCardHandler={() => newPlayerCard(i)} />
-      ))}
+      <div className="player-hands">
+        {playerCards.map((cards, i) => (
+          <Player
+            key={i}
+            cards={cards}
+            newCardHandler={() => newPlayerCard(i)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
